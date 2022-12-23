@@ -1,0 +1,158 @@
+<!DOCTYPE html>  
+<html lang = "en">  
+<head>  
+<title> Calculator </title>  
+<style>  
+
+#container 
+{  
+    width: 590px;  
+    height: 550px;  
+    margin-top: 65px;
+    margin-left: 400px;  
+    background-color: rgb(237, 233, 233);  
+    border-radius: 10px;  
+    padding: 30px;  
+} 
+
+form{
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-left: 105px;
+}
+
+#light{
+    background-color: white;
+    width: 325px;
+    height: 120px;
+}
+
+#light >input{
+    width: 280px;
+    height: 70px;
+    background-color: red;
+    color: white;
+    font-size: 30px;
+    
+} 
+
+#btn {
+    margin-top: 0;
+    height: 300px;
+    background-color: white;
+    width: 325px;
+} 
+  
+input  
+{  
+    width: 40px; 
+    height: 5px; 
+    background-color: rgb(237, 233, 233);  
+    color: rgb(104, 102, 102);  
+    border-radius: 30px;  
+    padding: 26px;
+    margin-top: 8px;
+    margin-left: 17px;  
+    border-color: rgb(237, 233, 233);
+    font-size: 22px; 
+    font-weight: bold;
+    border-style: solid;
+  
+}  
+ 
+#calculator{  
+    width: 250px;  
+    border-radius: 3px;  
+    padding: 20px;  
+    margin: auto;  
+}
+#equalbutton{
+    background-color: red;
+    color: white;
+}
+</style>  
+</head> 
+<body> 
+    
+<div id= "container">  
+    <h1 style="font-family:monospace; color:#d5aa86; font-size: 25px; text-align: center;">A simple Calculator</h1>
+<form name = "form1">  
+      
+  <div id="light">
+  <input id = "calculator" type ="text" name = "answer" onclick= colorChange()> <br> <br>  
+  </div>
+  <div id="btn">
+  <input type = "button" value = "7" class="btn" onclick = displayValue(this)>  
+  <input type = "button" value = "8" class="btn" onclick = displayValue(this)>  
+  <input type = "button" value = "9" class="btn" onclick = displayValue(this)>  
+  <input type = "button" value = "+" class="btn" onclick = displayValue(this)>  
+  <br>   
+    
+  <input type = "button" value = "4" class="btn" onclick = displayValue(this)>  
+  <input type = "button" value = "5" class="btn" onclick = displayValue(this)>  
+  <input type = "button" value = "6" class="btn" onclick = displayValue(this)>  
+  <input type = "button" value = "-" class="btn" onclick = displayValue(this)>  
+  <br> 
+    
+  <input type = "button" value = "1" class="btn" onclick = displayValue(this)>  
+  <input type = "button" value = "2" class="btn" onclick = displayValue(this)>  
+  <input type = "button" value = "3" class="btn" onclick = displayValue(this)>  
+  <input type = "button" value = "*" class="btn" onclick = displayValue(this)>  
+  <br> 
+    
+    
+  <input type = "button" value = "0" class="btn" onclick = displayValue(this)>  
+  <input type = "button" value = "." class="btn" onclick = displayValue(this)>  
+  <input type = "button" value = "/" class="btn" onclick = displayValue(this)>  
+      
+  <input type = "button" id ="equalbutton" value = "=" onclick = calculateResult()> 
+  </div>
+  <script>
+    let inputTag = document.getElementById("calculator");
+
+    function displayValue(e) {
+        inputTag.value += e.value;
+        switch(e.value) {
+            case ".":
+                alert("This is a decimal value")
+                break;
+            case "+":
+                alert("You are adding to the number")
+                break;
+            case "-":
+                alert("You are subtracting from the number")
+                break;
+            case "*":
+                alert("You are multiplying by the number")
+                break;
+            case "/":
+                alert("You are dividing with the number")
+                break;
+        }
+
+        inputTag.style.background = "black";
+    }
+
+    function calculateResult(e) {
+        form1.answer.value = eval(form1.answer.value);
+        let a = form1.answer.value;
+
+        if(a != parseInt(a)) {
+            alert("This is a decimal number");
+        }
+
+        inputTag.style.background = "orange";
+    }
+  </script> 
+  <br>   
+  <script>
+    var a = document.getElementById("calc").value ;
+    if(!isNaN(parseFloat(a)) && a.toString().indexOf(".") == -1){
+     alert("It is a decimal number!");
+    }
+   </script> 
+  <br>   
+</form>  
+</div>  
+</body>  
+</html>
